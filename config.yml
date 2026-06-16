@@ -1,0 +1,96 @@
+sources:
+  - KitPvP:
+    input: KitPvP.jar
+    output: KitPvP-obfuscated.jar
+
+libraries: []
+
+# Rename: unicode + keyword names
+remap:
+  enabled: true
+  dictionary: "IlI1lIIl1lIlIlIl"
+  classes: true
+  methods: true
+  fields: true
+  localVariables: true
+  aggressiveOverloading: false
+  classPrefix: ""
+  methodPrefix: ""
+  fieldPrefix: ""
+  localVariableName: "l"
+
+# Strip debug info
+sourceStrip:
+  enabled: true
+  lineNumbers: REMOVE
+
+kotlinMetadata:
+  enabled: false
+
+# Multi-algorithm string encryption + anti-dump
+stringObfuscation:
+  enabled: true
+  maxLength: 10000
+
+# Control flow flattening
+flowObfuscation:
+  enabled: true
+  severity: 7
+  mergeMethods: BLOAT_CLASSES
+  arithmetic: true
+  noverify: false
+  java8: false
+
+# MBA arithmetic
+arithmetic:
+  enabled: true
+  repeat: 3
+
+# Number obfuscation
+numberObfuscation:
+  enabled: true
+
+# Method indirection
+indirection:
+  enabled: true
+  fieldAccesses: true
+  variableAccesses: true
+
+# Method parameter obfuscation
+methodParameter:
+  enabled: true
+
+# Optimise enums
+optimisation:
+  enabled: true
+
+# Anti-tamper: CRC + debugger detection
+antiTamper:
+  enabled: true
+  crcCheck: true
+  debuggerDetect: true
+  agentDetect: true
+
+# Dead code injection
+deadCode:
+  enabled: true
+  density: 5
+
+# Unicode rename
+unicodeRename:
+  enabled: true
+  useKeywords: true
+  useUnicode: true
+
+# Anti-decompiler tricks
+crasher:
+  enabled: false
+
+shuffleClasses: true
+shuffleMethods: true
+shuffleFields: true
+ignoreClassPathNotFound: true
+useJavaClassloader: false
+resetLineProgress: true
+printProgress: true
+watermark: false
